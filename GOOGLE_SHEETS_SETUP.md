@@ -38,12 +38,57 @@ In the **"card"** tab, **Column A**, put one JSON object per row. Example:
 
 **Tip:** Keep JSON on one line in the cell. Use [jsonformatter.org](https://jsonformatter.org) to minify.
 
-## 3. Share the sheet
+---
+
+## 3. Set Up the "home" Tab (Optional)
+
+In the **"home"** tab, use this format:
+
+| Column A (key) | Column B (value) |
+|----------------|------------------|
+| pillLabel | For you, with love |
+| headline | Open a card |
+| headlineHighlight | when you're ready |
+| subheadline | Each one has a secret code... |
+| loadingText | Loading your cards... |
+| howItWorksLabel | How it works |
+| howItWorksTitle | Secret codes |
+| howItWorksText1 | Every card is locked... |
+| howItWorksText2 | Enter the code when prompted... |
+| tagline | Made with love · For you only |
+| taglineHighlight1 | love |
+| taglineHighlight2 | you |
+| dateDisplayTemplate | {count} of {total} unlocked |
+| footerText | cards · Powered by Google Sheets |
+
+### Love games (optional)
+
+| Column A | Column B |
+|----------|----------|
+| gamesSectionTitle | Little games for you |
+| reasonsLabel | Reasons I love you |
+| reasonsDesc | Click each heart to reveal a reason |
+| reasonsILoveYou | Your smile\|How you laugh\|Your kindness\|... (pipe `\|` separated) |
+| fortuneLabel | Love fortune |
+| fortuneDesc | Pick a card, get a sweet message |
+| loveFortunes | Fortune 1\|Fortune 2\|Fortune 3\|... (pipe separated) |
+| quizLabel | How well do you know us? |
+| quizDesc | Test your couple knowledge |
+| quizQuestions | `[{"q":"Question?","a":["A","B","C","D"],"c":0},...]` (JSON array, `c` = correct index 0–3) |
+
+**📖 See `QUIZ_FORMAT.md` for complete quiz questions JSON format and examples.**
+
+Use `{count}` and `{total}` in `dateDisplayTemplate` for the unlock counter.  
+If the "home" tab is not configured, built-in defaults are used.
+
+---
+
+## 4. Share the Sheet
 
 - **File → Share → Share with others**
 - Under “General access”, choose **Anyone with the link** → **Viewer**
 
-## 4. Get the Sheet ID
+## 5. Get the Sheet ID
 
 From the URL:
 ```
@@ -52,7 +97,7 @@ https://docs.google.com/spreadsheets/d/ABC123XYZ/edit
                                     Sheet ID
 ```
 
-## 5. Get a Google API key
+## 6. Get a Google API key
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a project (or pick one)
@@ -60,7 +105,7 @@ https://docs.google.com/spreadsheets/d/ABC123XYZ/edit
 4. Create credentials: APIs & Services → Credentials → Create Credentials → API Key
 5. (Optional) Restrict the key to the Sheets API
 
-## 7. Add to your app
+## 7. Add to Your App
 
 **Important:** The `.env` file must be in the **project root** (next to `package.json`), **not** in `src/`. Vite only loads env from the root.
 
