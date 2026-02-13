@@ -40,8 +40,7 @@ git push -u origin main
 
 Go to your repo → **Settings** → **Secrets and variables** → **Actions** → **New repository secret** and add:
 
-- `VITE_GOOGLE_SHEET_ID`
-- `VITE_GOOGLE_HOMEPAGE_SHEET_ID`
+- `VITE_GOOGLE_SHEET_ID` (single sheet ID - contains both "card" and "home" tabs)
 - `VITE_GOOGLE_API_KEY`
 
 These values are used during the GitHub Actions build.

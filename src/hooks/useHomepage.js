@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { fetchHomepageFromSheet } from '../services/sheets'
 
-const HOMEPAGE_SHEET_ID = import.meta.env.VITE_GOOGLE_HOMEPAGE_SHEET_ID
+const SHEET_ID = import.meta.env.VITE_GOOGLE_SHEET_ID
 
 const DEFAULT_HOMEPAGE = {
   pillLabel: "For you, with love",
@@ -32,10 +32,10 @@ const DEFAULT_HOMEPAGE = {
 
 export function useHomepage() {
   const [config, setConfig] = useState(DEFAULT_HOMEPAGE)
-  const [loading, setLoading] = useState(!!HOMEPAGE_SHEET_ID)
+  const [loading, setLoading] = useState(!!SHEET_ID)
 
   const load = useCallback(async () => {
-    if (!HOMEPAGE_SHEET_ID) {
+    if (!SHEET_ID) {
       setLoading(false)
       return
     }

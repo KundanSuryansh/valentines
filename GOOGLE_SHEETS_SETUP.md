@@ -1,21 +1,24 @@
 # Google Sheets Setup for Valentine Cards
 
-You use **two** Google Sheets:
+You use **one** Google Sheet with **two tabs**:
 
-1. **Cards sheet** – one row per card, Column A = JSON
-2. **Homepage sheet** – key-value pairs: Column A = key, Column B = value
+1. **"card" tab** – one row per card, Column A = JSON
+2. **"home" tab** – key-value pairs: Column A = key, Column B = value
 
 ---
 
-## Cards sheet
-
-## 1. Create a Google Sheet
+## 1. Create a Google Sheet with Two Tabs
 
 Create a new sheet: [sheets.new](https://sheets.new)
 
-## 2. Format Column A
+1. Rename the first tab to **"card"** (right-click the tab → Rename)
+2. Add a second tab and name it **"home"** (click the "+" icon at the bottom)
 
-In **Column A**, put one JSON object per row. Example:
+---
+
+## 2. Set Up the "card" Tab
+
+In the **"card"** tab, **Column A**, put one JSON object per row. Example:
 
 ```json
 {"id":"card-1","theme":"First Glance","backgroundImage":"https://example.com/image.jpg","title":"Card 1 — First Glance","subtitle":"The moment we met","content":{"heading":"Something clicked","message":"I still remember...","quote":"Some moments feel rehearsed."},"mood":"nostalgic","accentColor":"#ff6b9d","pin":"1234"}
@@ -57,7 +60,7 @@ https://docs.google.com/spreadsheets/d/ABC123XYZ/edit
 4. Create credentials: APIs & Services → Credentials → Create Credentials → API Key
 5. (Optional) Restrict the key to the Sheets API
 
-## 6. Add to your app
+## 7. Add to your app
 
 **Important:** The `.env` file must be in the **project root** (next to `package.json`), **not** in `src/`. Vite only loads env from the root.
 
@@ -73,9 +76,10 @@ Edit `.env` in the project root:
 
 ```
 VITE_GOOGLE_SHEET_ID=ABC123XYZ
-VITE_GOOGLE_HOMEPAGE_SHEET_ID=XYZ789ABC
 VITE_GOOGLE_API_KEY=your_api_key_here
 ```
+
+**Note:** You only need one `VITE_GOOGLE_SHEET_ID` since both tabs are in the same sheet.
 
 Restart the dev server.
 
@@ -83,54 +87,12 @@ Restart the dev server.
 
 If you deploy via GitHub Actions, add these **repository secrets**:
 
-- `VITE_GOOGLE_SHEET_ID`
-- `VITE_GOOGLE_HOMEPAGE_SHEET_ID`
+- `VITE_GOOGLE_SHEET_ID` (single sheet ID for both tabs)
 - `VITE_GOOGLE_API_KEY`
 
 They are injected at build time.
 
 **Note:** This is a frontend app—`VITE_*` values end up in the built bundle and are visible in the browser. Treat the Google API key as public and restrict it in Google Cloud (API restrictions + optionally HTTP referrers).
-
----
-
-## Homepage sheet (optional)
-
-Create a **separate** Google Sheet for homepage text. Format:
-
-| Column A (key) | Column B (value) |
-|----------------|------------------|
-| pillLabel | For you, with love |
-| headline | Open a card |
-| headlineHighlight | when you're ready |
-| subheadline | Each one has a secret code... |
-| loadingText | Loading your cards... |
-| howItWorksLabel | How it works |
-| howItWorksTitle | Secret codes |
-| howItWorksText1 | Every card is locked... |
-| howItWorksText2 | Enter the code when prompted... |
-| tagline | Made with love · For you only |
-| taglineHighlight1 | love |
-| taglineHighlight2 | you |
-| dateDisplayTemplate | {count} of {total} unlocked |
-| footerText | cards · Powered by Google Sheets |
-
-Use `{count}` and `{total}` in `dateDisplayTemplate` for the unlock counter.  
-If the homepage sheet is not configured, built-in defaults are used.
-
-### Love games (optional)
-
-| Column A | Column B |
-|----------|----------|
-| gamesSectionTitle | Little games for you |
-| reasonsLabel | Reasons I love you |
-| reasonsDesc | Click each heart to reveal a reason |
-| reasonsILoveYou | Your smile\|How you laugh\|Your kindness\|... (pipe `\|` separated) |
-| fortuneLabel | Love fortune |
-| fortuneDesc | Pick a card, get a sweet message |
-| loveFortunes | Fortune 1\|Fortune 2\|Fortune 3\|... (pipe separated) |
-| quizLabel | How well do you know us? |
-| quizDesc | Test your couple knowledge |
-| quizQuestions | `[{"q":"Question?","a":["A","B","C","D"],"c":0},...]` (JSON array, `c` = correct index 0–3) |
 
 ---
 

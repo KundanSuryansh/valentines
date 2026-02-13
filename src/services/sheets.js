@@ -1,25 +1,28 @@
 /**
- * Fetch cards from Google Sheets.
- * Column A = JSON string per row. Number of rows = number of cards.
+ * Fetch cards and homepage data from Google Sheets.
+ * 
+ * Uses a single Google Sheet with two tabs:
+ * - "card" tab: Column A = JSON string per row (one card per row)
+ * - "home" tab: Column A = key, Column B = value (homepage config)
  *
  * Setup:
- * 1. Create a Google Sheet
- * 2. In Column A, put one JSON object per row (minified or formatted)
- * 3. Enable Google Sheets API: https://console.cloud.google.com/apis/library/sheets.googleapis.com
- * 4. Create an API key (restrict to Sheets API)
- * 5. Share the sheet with "Anyone with the link can view"
- * 6. Add VITE_GOOGLE_SHEET_ID and VITE_GOOGLE_API_KEY to .env
+ * 1. Create a Google Sheet with two tabs named "card" and "home"
+ * 2. In "card" tab, Column A: put one JSON object per row (minified or formatted)
+ * 3. In "home" tab, Column A = key, Column B = value (one config field per row)
+ * 4. Enable Google Sheets API: https://console.cloud.google.com/apis/library/sheets.googleapis.com
+ * 5. Create an API key (restrict to Sheets API)
+ * 6. Share the sheet with "Anyone with the link can view"
+ * 7. Add VITE_GOOGLE_SHEET_ID and VITE_GOOGLE_API_KEY to .env
  */
 
 const SHEET_ID = import.meta.env.VITE_GOOGLE_SHEET_ID
-const HOMEPAGE_SHEET_ID = import.meta.env.VITE_GOOGLE_HOMEPAGE_SHEET_ID
 const API_KEY = import.meta.env.VITE_GOOGLE_API_KEY
 
 const cardsApiUrl = SHEET_ID && API_KEY
-  ? `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A:A?key=${API_KEY}`
+  ? `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/card!A:A?key=${API_KEY}`
   : null
-const homepageApiUrl = HOMEPAGE_SHEET_ID && API_KEY
-  ? `https://sheets.googleapis.com/v4/spreadsheets/${HOMEPAGE_SHEET_ID}/values/Sheet1!A:B?key=${API_KEY}`
+const homepageApiUrl = SHEET_ID && API_KEY
+  ? `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/home!A:B?key=${API_KEY}`
   : null
 
 /**
@@ -49,11 +52,11 @@ function parseCardRow(raw, index) {
  */
 /**
  * Fetch homepage config from Google Sheets.
- * Sheet format: Column A = key, Column B = value (one config field per row).
+ * Reads from the "home" tab: Column A = key, Column B = value (one config field per row).
  * Returns object of key-value pairs, or null on error.
  */
 export async function fetchHomepageFromSheet() {
-  if (!HOMEPAGE_SHEET_ID || !API_KEY || !homepageApiUrl) return null
+  if (!SHEET_ID || !API_KEY || !homepageApiUrl) return null
 
   try {
     const res = await fetch(homepageApiUrl)
