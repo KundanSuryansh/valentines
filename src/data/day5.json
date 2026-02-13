@@ -1,0 +1,16 @@
+{
+  "id": "day-5",
+  "dayNumber": 5,
+  "theme": "Ordinary Magic",
+  "backgroundImage": "https://picsum.photos/seed/valday5/1920/1080",
+  "title": "Day 5 — Ordinary Magic",
+  "subtitle": "The little things that mean the most",
+  "content": {
+    "heading": "Coffee runs and lazy Sundays",
+    "message": "It's not always grand gestures. Sometimes it's how you remember my order, or squeeze my hand when I'm stressed, or laugh at my terrible jokes.",
+    "quote": "Love lives in the ordinary moments we never forget."
+  },
+  "mood": "warm",
+  "accentColor": "#be185d",
+  "pin": "5678"
+}

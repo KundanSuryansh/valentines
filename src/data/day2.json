@@ -1,0 +1,16 @@
+{
+  "id": "day-2",
+  "dayNumber": 2,
+  "theme": "First Conversation",
+  "backgroundImage": "https://picsum.photos/seed/valday2/1920/1080",
+  "title": "Day 2 — First Conversation",
+  "subtitle": "When words became magic",
+  "content": {
+    "heading": "We talked for hours",
+    "message": "I didn't want that conversation to end. Your laugh, your thoughts, the way you get excited about small things — I knew I wanted more.",
+    "quote": "The best conversations leave you with more questions than answers."
+  },
+  "mood": "curious",
+  "accentColor": "#e84a8f",
+  "pin": "2345"
+}

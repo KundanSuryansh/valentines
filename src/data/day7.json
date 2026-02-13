@@ -1,0 +1,16 @@
+{
+  "id": "day-7",
+  "dayNumber": 7,
+  "theme": "Through Thick and Thin",
+  "backgroundImage": "https://picsum.photos/seed/valday7/1920/1080",
+  "title": "Day 7 — Through Thick and Thin",
+  "subtitle": "You've seen me at my worst",
+  "content": {
+    "heading": "Thank you for staying",
+    "message": "On the hard days, the messy days, the days I didn't have much to give — you stayed. That kind of love doesn't ask for perfection. It just shows up.",
+    "quote": "True love is choosing someone again and again, especially when it's not easy."
+  },
+  "mood": "grateful",
+  "accentColor": "#9d174d",
+  "pin": "7890"
+}

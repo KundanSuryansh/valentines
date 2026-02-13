@@ -1,0 +1,16 @@
+{
+  "id": "day-4",
+  "dayNumber": 4,
+  "theme": "First Confession",
+  "backgroundImage": "https://picsum.photos/seed/valday4/1920/1080",
+  "title": "Day 4 — First Confession",
+  "subtitle": "Three words that changed everything",
+  "content": {
+    "heading": "I love you",
+    "message": "I've said it a thousand times since, but that first time — when my heart was in my throat and my hands were shaking — that was the bravest thing I've ever done.",
+    "quote": "Love is the courage to be vulnerable."
+  },
+  "mood": "tender",
+  "accentColor": "#c2255c",
+  "pin": "4567"
+}

@@ -1,0 +1,38 @@
+.unlock-celebration {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.unlock-celebration__heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: var(--size, 20px);
+  color: #ff6b9d;
+  animation: unlock-burst 2s ease-out forwards;
+  animation-delay: var(--delay, 0s);
+  opacity: 0;
+  text-shadow: 0 0 10px rgba(255, 107, 157, 0.8);
+}
+
+@keyframes unlock-burst {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0) rotate(0deg);
+  }
+  15% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2) rotate(var(--rot, 0deg));
+  }
+  100% {
+    opacity: 0;
+    transform: translate(
+        calc(-50% + var(--x, 0)),
+        -150px
+      )
+      scale(0.6)
+      rotate(calc(var(--rot, 0) + 180deg));
+  }
+}

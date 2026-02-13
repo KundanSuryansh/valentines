@@ -1,0 +1,16 @@
+{
+  "id": "day-3",
+  "dayNumber": 3,
+  "theme": "First Date",
+  "backgroundImage": "https://picsum.photos/seed/valday3/1920/1080",
+  "title": "Day 3 — First Date",
+  "subtitle": "Nervous butterflies and hopeful smiles",
+  "content": {
+    "heading": "I dressed up three times",
+    "message": "Every detail mattered. The place, the time, what I'd say. And then you showed up, and none of it mattered — because you were there.",
+    "quote": "The best dates are the ones where you forget to check the time."
+  },
+  "mood": "excited",
+  "accentColor": "#d63484",
+  "pin": "3456"
+}

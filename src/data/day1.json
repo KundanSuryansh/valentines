@@ -1,0 +1,16 @@
+{
+  "id": "day-1",
+  "dayNumber": 1,
+  "theme": "First Glance",
+  "backgroundImage": "https://picsum.photos/seed/valday1/1920/1080",
+  "title": "Day 1 — First Glance",
+  "subtitle": "The moment our eyes met",
+  "content": {
+    "heading": "Something clicked",
+    "message": "I still remember the first time I saw you. It wasn't dramatic or loud — just a quiet shift in the air, like the world had been waiting to introduce us.",
+    "quote": "Some moments are so perfect, they feel like they've been rehearsed."
+  },
+  "mood": "nostalgic",
+  "accentColor": "#ff6b9d",
+  "pin": "1234"
+}

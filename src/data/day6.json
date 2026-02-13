@@ -1,0 +1,16 @@
+{
+  "id": "day-6",
+  "dayNumber": 6,
+  "theme": "Adventures Together",
+  "backgroundImage": "https://picsum.photos/seed/valday6/1920/1080",
+  "title": "Day 6 — Adventures Together",
+  "subtitle": "Every journey is better with you",
+  "content": {
+    "heading": "Let's get lost",
+    "message": "Whether it's a road trip, a new restaurant, or a walk in the rain — I want to explore the world with you. Every adventure feels like the first when we're together.",
+    "quote": "Home isn't a place. It's wherever you are."
+  },
+  "mood": "adventurous",
+  "accentColor": "#a61e4d",
+  "pin": "6789"
+}

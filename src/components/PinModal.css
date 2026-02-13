@@ -1,0 +1,272 @@
+.pin-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  animation: pin-overlay-in 0.3s ease-out;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 768px) {
+  .pin-modal-overlay {
+    padding: 0.75rem;
+    align-items: flex-end;
+  }
+}
+
+@keyframes pin-overlay-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.pin-modal {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  padding: 2rem 1.75rem;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 200, 220, 0.08) 100%);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 32px 64px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  animation: pin-modal-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@media (max-width: 768px) {
+  .pin-modal {
+    max-width: 100%;
+    padding: 1.75rem 1.5rem;
+    border-radius: 24px 24px 0 0;
+    margin-bottom: 0;
+  }
+}
+
+.pin-modal--shake {
+  animation: pin-shake 0.4s ease-out;
+}
+
+@keyframes pin-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes pin-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+}
+
+.pin-modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.5rem;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .pin-modal__close {
+    width: 40px;
+    height: 40px;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+}
+
+.pin-modal__close:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.pin-modal__lock {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.pin-modal__lock-icon {
+  font-size: 3rem;
+  filter: drop-shadow(0 4px 12px rgba(255, 107, 157, 0.5));
+}
+
+.pin-modal__title {
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffdde1;
+  text-align: center;
+}
+
+.pin-modal__hint {
+  margin: 0 0 1.25rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  text-align: center;
+}
+
+.pin-modal__dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.pin-modal__dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  transition: all 0.2s;
+}
+
+.pin-modal__dot--filled {
+  background: linear-gradient(135deg, #ff6b9d, #ff9a9e);
+  border-color: #ff6b9d;
+  box-shadow: 0 0 12px rgba(255, 107, 157, 0.6);
+}
+
+.pin-modal__pad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .pin-modal__pad {
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+.pin-modal__key {
+  aspect-ratio: 1;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 48px;
+}
+
+@media (max-width: 768px) {
+  .pin-modal__key {
+    font-size: 1.5rem;
+    min-height: 52px;
+    border-radius: 12px;
+  }
+}
+
+.pin-modal__key:hover:not(:disabled) {
+  background: rgba(255, 107, 157, 0.4);
+  transform: scale(1.05);
+}
+
+.pin-modal__key:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.pin-modal__key:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pin-modal__key--empty {
+  background: transparent;
+  cursor: default;
+  pointer-events: none;
+}
+
+.pin-modal__submit {
+  width: 100%;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #ff6b9d, #ff9a9e);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 8px 24px rgba(255, 107, 157, 0.4);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 48px;
+}
+
+@media (max-width: 768px) {
+  .pin-modal__submit {
+    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
+    min-height: 52px;
+  }
+}
+
+.pin-modal__submit:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(255, 107, 157, 0.5);
+}
+
+.pin-modal__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.pin-modal__error {
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  color: #ff9a9e;
+  text-align: center;
+  animation: pin-error-in 0.3s ease-out;
+}
+
+@keyframes pin-error-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
