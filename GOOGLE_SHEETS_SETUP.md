@@ -61,6 +61,8 @@ https://docs.google.com/spreadsheets/d/ABC123XYZ/edit
 
 **Important:** The `.env` file must be in the **project root** (next to `package.json`), **not** in `src/`. Vite only loads env from the root.
 
+Also: `.env` is ignored by git (do not commit it).
+
 Copy `.env.example` to `.env` in the project root:
 
 ```bash
@@ -76,6 +78,18 @@ VITE_GOOGLE_API_KEY=your_api_key_here
 ```
 
 Restart the dev server.
+
+### GitHub Pages deployment (Secrets)
+
+If you deploy via GitHub Actions, add these **repository secrets**:
+
+- `VITE_GOOGLE_SHEET_ID`
+- `VITE_GOOGLE_HOMEPAGE_SHEET_ID`
+- `VITE_GOOGLE_API_KEY`
+
+They are injected at build time.
+
+**Note:** This is a frontend app—`VITE_*` values end up in the built bundle and are visible in the browser. Treat the Google API key as public and restrict it in Google Cloud (API restrictions + optionally HTTP referrers).
 
 ---
 
